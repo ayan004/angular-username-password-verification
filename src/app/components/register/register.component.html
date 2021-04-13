@@ -1,0 +1,163 @@
+<h2>Register Page</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="collectData()">
+  <div class="form-group">
+    <label>Username &nbsp;</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="username"
+      placeholder="Enter Username"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Email &nbsp;</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="Enter email"
+    />
+    <span id="warn_email" class="warning"></span>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Contact Number &nbsp;</label>
+    <input
+      type="number"
+      class="form-control"
+      formControlName="contact_number"
+      placeholder="Enter contact number"
+    />
+    <span id="warn_contact_number" class="warning"></span>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Gender &nbsp;</label>
+    <input
+      type="radio"
+      id="male"
+      name="gender"
+      value="male"
+      formControlName="gender"
+    />
+    <label for="male">Male</label>
+    <input
+      type="radio"
+      id="female"
+      name="gender"
+      value="female"
+      formControlName="gender"
+    />
+    <label for="female">Female</label>
+    <input
+      type="radio"
+      id="other"
+      name="gender"
+      value="other"
+      formControlName="gender"
+    />
+    <label for="other">Other</label>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Permanent Address &nbsp;</label>
+    <textarea
+      rows="4"
+      cols="50"
+      name="permanent_address"
+      formControlName="permanent_address"
+    >
+      Enter address...</textarea
+    >
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Temporary Address &nbsp;</label>
+    <textarea
+      rows="4"
+      cols="50"
+      name="temp_address"
+      formControlName="temp_address"
+    >
+      Enter address...</textarea
+    >
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="choice">Choose your preference &nbsp;</label>
+    <select id="choice" name="choice" formControlName="travel_preference">
+      <option value="two_wheels">Two wheels</option>
+      <option value="four_wheels">Four wheels</option>
+      <option value="water_boats">Water boats</option>
+      <option value="air_planes">Air planes</option>
+      <option value="none">None</option>
+    </select>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Sports &nbsp;</label>
+    <input
+      type="checkbox"
+      id="sport1"
+      name="sport1"
+      value="outdoor"
+      formControlName="outdoor_games"
+    />
+    <label for="sport1"> Outdoor games</label>
+    <input
+      type="checkbox"
+      id="sport2"
+      name="sport2"
+      value="indoor"
+      formControlName="indoor_games"
+    />
+    <label for="sport2"> Indoor games</label>
+    <input
+      type="checkbox"
+      id="sport3"
+      name="sport3"
+      value="video"
+      formControlName="video_games"
+    />
+    <label for="sport3"> Video games</label>
+    <input
+      type="checkbox"
+      id="sport4"
+      name="sport4"
+      value="other"
+      formControlName="other_games"
+    />
+    <label for="sport4"> Other</label>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Password &nbsp;</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      placeholder="Enter Password"
+      id="password"
+    />
+    <i class="fa fa-eye" aria-hidden="true" id="view_password"></i>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Confirm Password &nbsp;</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="confirm_password"
+      placeholder="Confirm Password"
+      id="confirm_password"
+    />
+    <i class="fa fa-eye" aria-hidden="true" id="view_confirm_password"></i>
+  </div>
+  <br />
+  <span id="mandate_fields" class="warning"></span>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br />
+<div id="resultEl" class="warning"></div>

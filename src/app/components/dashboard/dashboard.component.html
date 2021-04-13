@@ -1,0 +1,95 @@
+<p>dashboard works!</p>
+
+<h1>Welcome to dashboard</h1>
+
+<nav class="navbar">
+  <input
+    type="text"
+    class="form-control"
+    name="searchWord"
+    [(ngModel)]="searchWord"
+    (ngModelChange)="search()"
+    placeholder="Enter first name to search"
+  />
+</nav>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th (click)="sort('username')">
+        Username&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('email')">Email&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('contact_number')">
+        Contact_number&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('gender')">Gender&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('permanent_address')">
+        Permanent Address&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('temp_address')">
+        Temporary Address&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('travel_preference')">
+        Travel Preference&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('outdoor_games')">
+        Outdoor Games&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('indoor_games')">
+        Indoor Games&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('video_games')">
+        Video Games&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('other_games')">
+        Other Games&nbsp;<i class="fa fa-sort"></i>
+      </th>
+      <th (click)="sort('password')">
+        Password&nbsp;<i class="fa fa-sort"></i>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let user of users
+          | orderBy: key:reverse
+          | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+    >
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.contact_number }}</td>
+      <td>{{ user.gender }}</td>
+      <td>{{ user.permanent_address }}</td>
+      <td>{{ user.temp_address }}</td>
+      <td>{{ user.travel_preference }}</td>
+      <td>
+        <div *ngIf="user.outdoor_games === true; else elseBlock1">
+          {{ user.outdoor_games }}
+        </div>
+        <ng-template #elseBlock1>false</ng-template>
+      </td>
+      <td>
+        <div *ngIf="user.indoor_games === true; else elseBlock2">
+          {{ user.indoor_games }}
+        </div>
+        <ng-template #elseBlock2>false</ng-template>
+      </td>
+      <td>
+        <div *ngIf="user.video_games === true; else elseBlock3">
+          {{ user.video_games }}
+        </div>
+        <ng-template #elseBlock3> false </ng-template>
+      </td>
+      <td>
+        <div *ngIf="user.other_games === true; else elseBlock4">
+          {{ user.other_games }}
+        </div>
+        <ng-template #elseBlock4>false</ng-template>
+      </td>
+      <td>{{ user.password }}</td>
+    </tr>
+  </tbody>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>

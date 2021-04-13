@@ -1,0 +1,27 @@
+<h2>Login Page</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="collectData()">
+  <div class="form-group">
+    <label>Name &nbsp;</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="username"
+      placeholder="Enter Username"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Password &nbsp;</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="password"
+      placeholder="Enter Password"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br />
+<div id="resultEl"></div>
